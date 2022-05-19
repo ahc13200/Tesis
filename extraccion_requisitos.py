@@ -16,4 +16,7 @@ agrupar_similitud.similitudes(requisitos_extraidos)
 # -----------------Metricas de calidad
 #metricas.medidaf()
 
+print("Esta listo todo")
+
+
 
