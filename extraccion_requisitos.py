@@ -19,4 +19,3 @@ agrupar_similitud.similitudes(requisitos_extraidos)
 print("Esta listo todo")
 
 
-
