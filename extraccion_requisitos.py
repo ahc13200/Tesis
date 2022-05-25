@@ -10,11 +10,13 @@ texto = cargar_texto.cargar_contenido()
 # -----------------Pre-peocesamiento hasta el arbol de dependencias
 requisitos_extraidos = pre_procesamiento.pre_proces(texto)
 
+
 # -----------------Agrupar requisitos por similitud
 agrupar_similitud.similitudes(requisitos_extraidos)
 
+
 # -----------------Metricas de calidad
-#metricas.medidaf()
+#metricas.medidaf(requisitos_extraidos)
 
 print("Esta listo todo")
 

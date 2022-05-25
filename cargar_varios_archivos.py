@@ -14,7 +14,7 @@ def cargar_contenido():
 
     raiz, extension = os.path.splitext(ruta)
 
-    if extension == ".docx":
+    if extension == ".docx" or extension == ".doc":
         contenido = docx2txt.process(ruta)
         #print(contenido)
 
@@ -32,7 +32,6 @@ def cargar_contenido():
                 with open(ruta, 'r') as archivo:
                     contenido = archivo.read()
                 #print(contenido)
-
 
     return contenido
 

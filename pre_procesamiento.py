@@ -40,14 +40,21 @@ def pre_proces(texto):
 
     #Annadir patron basado en regla al matcher
     p1 = [{"POS": "VERB"}, {"POS": "NOUN"}]
-    p2 = [{"POS": "VERB"}, {"POS": "NOUN"}, {"POS": "ADP"}, {"POS": "NOUN"}]
-    p3 = [{"POS": "VERB"}, {"POS": "NOUN"}, {"POS": "ADJ"}]
-    p4 = [{"POS": "VERB"}, {"POS": "NOUN"}, {"POS": "ADP"}, {"POS": "DET"}, {"POS": "NOUN"}]
-    p5 = [{"POS": "VERB"}, {"POS": "NOUN"}, {"POS": "ADP"}, {"POS": "NOUN"}, {"POS": "ADJ"}]
-    p6 = [{"POS": "VERB"}, {"POS": "NOUN"}, {"POS": "ADP"}, {"POS": "NOUN"}, {"POS": "ADP"}, {"POS": "NOUN"}]
-    p7 = [{"POS": "VERB"}, {"POS": "NOUN"}, {"POS": "ADJ"}, {"POS": "ADP"}, {"POS": "NOUN"}]
-    p8 = [{"POS": "VERB"}, {"POS": "NOUN"}, {"POS": "VERB"}, {"POS": "DET"}, {"POS": "NOUN"}, {"POS": "ADJ"}]
-    p9 = [{"POS": "VERB"}, {"POS": "DET"}, {"POS": "NOUN"}]
+    p2 = [{"POS": "VERB"}, {"POS": "NOUN"}, {"POS": "ADJ"}]
+    p3 = [{"POS": "VERB"}, {"POS": "DET"}, {"POS": "NOUN"}]
+    p4 = [{"POS": "VERB"}, {"POS": "NOUN"}, {"POS": "ADP"}, {"POS": "NOUN"}]
+    p5 = [{"POS": "VERB"}, {"POS": "NOUN"}, {"POS": "ADP"}, {"POS": "DET"}, {"POS": "NOUN"}]
+    p6 = [{"POS": "VERB"}, {"POS": "NOUN"}, {"POS": "ADP"}, {"POS": "NOUN"}, {"POS": "ADJ"}]
+    p7 = [{"POS": "VERB"}, {"POS": "NOUN"}, {"POS": "ADP"}, {"POS": "NOUN"}, {"POS": "ADP"}, {"POS": "NOUN"}]
+    p8 = [{"POS": "VERB"}, {"POS": "NOUN"}, {"POS": "ADJ"}, {"POS": "ADP"}, {"POS": "NOUN"}]
+    p9 = [{"POS": "VERB"}, {"POS": "NOUN"}, {"POS": "VERB"}, {"POS": "DET"}, {"POS": "NOUN"}, {"POS": "ADJ"}]
+    p10 = [{"POS": "VERB"}, {"POS": "ADJ"}, {"POS": "PRON"}, {"POS": "VERB"}, {"POS": "ADJ"}, {"POS": "DET"}, {"POS": "NOUN"}, {"POS": "ADJ"}]
+    p11 = [{"POS": "VERB"}, {"POS": "ADJ"}, {"POS": "PRON"}, {"POS": "VERB"}, {"POS": "DET"}, {"POS": "NOUN"}, {"POS": "AUX"}]
+    p12 = [{"POS": "VERB"}, {"POS": "ADJ"}, {"POS": "ADP"}, {"POS": "NOUN"}, {"POS": "ADJ"}]
+    p13 = [{"POS": "VERB"}, {"POS": "ADV"}, {"POS": "ADP"}, {"POS": "NOUN"}, {"POS": "ADP"}, {"POS": "DET"}, {"POS": "NOUN"}, {"POS": "ADJ"}]
+    p14 = [{"POS": "VERB"}, {"POS": "NOUN"}, {"POS": "ADP"}, {"POS": "ADJ"}]
+    p15 = [{"POS": "VERB"}, {"POS": "DET"}, {"POS": "NOUN"}, {"POS": "ADJ"}]
+
 
 
     #            ID del patron  nomb del patron
@@ -60,7 +67,12 @@ def pre_proces(texto):
     matcher.add("7", [p7])
     matcher.add("8", [p8])
     matcher.add("9", [p9])
-
+    matcher.add("10", [p10])
+    matcher.add("11", [p11])
+    matcher.add("12", [p12])
+    matcher.add("13", [p13])
+    matcher.add("14", [p14])
+    matcher.add("15", [p15])
 
 
     #llamar al matcher sobre el doc
