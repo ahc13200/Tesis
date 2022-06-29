@@ -33,6 +33,9 @@ def cargar_contenido():
                     contenido = archivo.read()
                 #print(contenido)
 
+            else:
+                contenido = ""
+
     return contenido
 
 #texto = cargar_contenido()
