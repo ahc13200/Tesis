@@ -57,7 +57,7 @@ def similitudes(requisitos_extraidos):
 
 #similitudes(requisitos_extraidos)
 
-'''l = refinamiento(requisitos_extraidos)
+l = refinamiento(requisitos_extraidos)
 #X_scaled = scale(refinamiento(requisitos_extraidos))
 modelo_hclust_ward = AgglomerativeClustering(
                             affinity = 'euclidean',
@@ -68,4 +68,4 @@ modelo_hclust_ward = AgglomerativeClustering(
 modelo_hclust_ward.fit(X=l)
 #AgglomerativeClustering(distance_threshold=0, n_clusters=None)
 
-print(AgglomerativeClustering(distance_threshold=0, n_clusters=None))'''
+print(AgglomerativeClustering(distance_threshold=0, n_clusters=None))
