@@ -7,8 +7,9 @@ import metricas as metricas
 # -----------------Cargar documento
 texto = cargar_texto.cargar_contenido()
 
-# -----------------Pre-peocesamiento hasta el arbol de dependencias
+
 if texto != "":
+    # -----------------Pre-peocesamiento hasta el arbol de dependencias
     requisitos_extraidos = pre_procesamiento.pre_proces(texto)
 
     # ----------------- Exportar resultados
@@ -19,6 +20,7 @@ if texto != "":
     metricas.medidaf(requisitos_extraidos)
 
     print("Esta listo todo")
+
 else:
     print("Debe escoger un archivo a procesar")
 
