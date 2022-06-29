@@ -4,6 +4,7 @@ from sklearn.cluster import AgglomerativeClustering
 from sklearn.preprocessing import scale
 import re, math
 from collections import Counter
+from hermetrics.levenshtein import Levenshtein
 
 
 
@@ -42,6 +43,7 @@ def refinamiento(requisitos_extraidos):
 #print(refinamiento(requisitos_extraidos))
 
 def similitudes(requisitos_extraidos):
+    lev = Levenshtein()
     l = refinamiento(requisitos_extraidos)
     listaMayor = []
     indices_guardados = []
@@ -49,7 +51,7 @@ def similitudes(requisitos_extraidos):
         filtro = []
         if i not in indices_guardados:
             for j in range(i+1, len(l)):
-                valor = round(SM(None, l[i], l[j]).ratio(), 1)
+                valor = round(lev.similarity(l[i], l[j]), 1)
                 if valor >= 0.90 and j not in indices_guardados:
                     filtro.append(l[j])
                     indices_guardados.append(j)
