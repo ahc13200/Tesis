@@ -1,4 +1,5 @@
 from difflib import SequenceMatcher as SM
+from sklearn.metrics.pairwise import cosine_similarity, cosine_distances
 
 
 ######################## Buscar similitudes ###############################
@@ -50,10 +51,8 @@ def similitudes(requisitos_extraidos):
                     indices_guardados.append(j)
             filtro.append(l[i])
             listaMayor.append(filtro)
-    archivo = open('requisitos_agrupados_similares.txt', 'w')
-    for linea in listaMayor:
-        a = " ".join([str(_) + ", " for _ in linea])
-        archivo.write(a + "\n")
-    archivo.close()
+    return listaMayor
 
 #similitudes(requisitos_extraidos)
+
+
