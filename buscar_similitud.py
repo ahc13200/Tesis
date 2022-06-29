@@ -2,15 +2,17 @@ from difflib import SequenceMatcher as SM
 import sklearn
 from sklearn.cluster import AgglomerativeClustering
 from sklearn.preprocessing import scale
+import re, math
+from collections import Counter
 
 
 
 ######################## Buscar similitudes ###############################
 
 
-requisitos_extraidos = [['realizar', 'las', 'pruebas'], ['realizar', 'las', 'pruebas', 'químicas'], ['realizar', 'las', 'pruebas', 'químicas', 'ahi'], ['entregar', 'los', 'resultados'], ['tratar', 'una', 'enfermedad'], ['definir', 'las', 'indicaciones'], ['definir', 'las', 'indicaciones', 'médicas'], ['tomar', 'presión'], ['medir', 'la', 'temperatura'], ['evaluar', 'los', 'resultados'], ['hacer', 'el', 'laboratorio'], ['definir', 'las', 'indicaciones'], ['definir', 'las', 'indicaciones', 'médicas'],
+'''requisitos_extraidos = [['realizar', 'las', 'pruebas'], ['realizar', 'las', 'pruebas', 'químicas'], ['realizar', 'las', 'pruebas', 'químicas', 'ahi'], ['entregar', 'los', 'resultados'], ['tratar', 'una', 'enfermedad'], ['definir', 'las', 'indicaciones'], ['definir', 'las', 'indicaciones', 'médicas'], ['tomar', 'presión'], ['medir', 'la', 'temperatura'], ['evaluar', 'los', 'resultados'], ['hacer', 'el', 'laboratorio'], ['definir', 'las', 'indicaciones'], ['definir', 'las', 'indicaciones', 'médicas'],
                         ['indicar', 'las', 'pruebas'], ['indicar', 'las', 'pruebas', 'químicas'], ['definir', 'el', 'tratamiento'], ['recetar', 'medicamentos'], ['definir', 'las', 'indicaciones'], ['definir', 'las', 'indicaciones', 'médicas'], ['consultar', 'la', 'historia'], ['consultar', 'la', 'historia', 'clínica'], ['realizar', 'las', 'pruebas'], ['realizar', 'las', 'pruebas', 'clínicas'], ['examinar', 'las', 'muestras'], ['recoger', 'las', 'muestras'], ['realizar', 'los', 'exámenes'],
-                        ['recoger', 'las', 'muestras'], ['extraer', 'muestras'], ['realizar', 'los', 'exámenes'], ['realizar', 'los', 'exámenes', 'siguientes']]
+                        ['recoger', 'las', 'muestras'], ['extraer', 'muestras'], ['realizar', 'los', 'exámenes'], ['realizar', 'los', 'exámenes', 'siguientes']]'''
 
 def convertir(requisitos_extraidos):
     listas = []
@@ -57,15 +59,55 @@ def similitudes(requisitos_extraidos):
 
 #similitudes(requisitos_extraidos)
 
-l = refinamiento(requisitos_extraidos)
-#X_scaled = scale(refinamiento(requisitos_extraidos))
-modelo_hclust_ward = AgglomerativeClustering(
-                            affinity = 'euclidean',
-                            linkage  = 'ward',
-                            distance_threshold = 0,
-                            n_clusters         = None
-                     )
-modelo_hclust_ward.fit(X=l)
+def algoritmo_agrupamiento_jerarquico(requisitos_extraidos):
+    l = refinamiento(requisitos_extraidos)
+    #X_scaled = scale(refinamiento(requisitos_extraidos))
+    modelo_hclust_ward = AgglomerativeClustering(
+                                affinity = 'euclidean',
+                                linkage  = 'ward',
+                                distance_threshold = 0,
+                                n_clusters         = None
+                         )
+    modelo_hclust_ward.fit(X=l)
+
 #AgglomerativeClustering(distance_threshold=0, n_clusters=None)
 
-print(AgglomerativeClustering(distance_threshold=0, n_clusters=None))
+
+def get_cosine(vec1, vec2):
+    intersection = set(vec1.keys()) & set(vec2.keys())
+    numerator = sum([vec1[x] * vec2[x] for x in intersection])
+
+    sum1 = sum([vec1[x] ** 2 for x in vec1.keys()])
+    sum2 = sum([vec2[x] ** 2 for x in vec2.keys()])
+    denominator = math.sqrt(sum1) * math.sqrt(sum2)
+
+    if not denominator:
+        return 0.0
+    else:
+        return float(numerator) / denominator
+
+def text_to_vector(text):
+    WORD = re.compile(r'\w+')
+    words = WORD.findall(text)
+    return Counter(words)
+
+def similitud_coseno (requisitos_extraidos):
+    l = refinamiento(requisitos_extraidos)
+    listaMayor = []
+    indices_guardados = []
+    for i in range(len(l)):
+        filtro = []
+        if i not in indices_guardados:
+            for j in range(i + 1, len(l)):
+                vector1 = text_to_vector(l[i])
+                vector2 = text_to_vector(l[j])
+                cosine = round(get_cosine(vector1, vector2), 1)
+                if cosine >= 0.90 and j not in indices_guardados:
+                    filtro.append(l[j])
+                    indices_guardados.append(j)
+            filtro.append(l[i])
+            listaMayor.append(filtro)
+    return listaMayor
+
+
+
