@@ -1,26 +1,26 @@
-alquilar un automóvil, 
-suministrar sus datos personales, 
-proporcionar las características, 
-garantizar el cumplimiento, 
-obtener el auto, 
-necesitar el cliente, 
-hacer una reserva, 
-tener la oportunidad, 
-proporcionar sus datos personales, 
-suministrar la empresa, 
-analizar las alternativas, 
-indique las características, 
-suministrir información de los seguros, 
-proporcionar el servicio, 
-validar la tarjeta, 
-proporcionar él la tarjeta, 
-realizar la reserva, 
-obtener los datos,  
-obtener los datos personales, 
-analizar la disponibilidad, 
-reservar un auto, 
-tener disponibilidad, 
-formalizar la reserva, 
-registrar el alquiler, 
-comprobar la validez, 
-pagar el servicio, 
+alquilar un automóvil
+suministrar sus datos personales
+proporcionar las características
+garantizar el cumplimiento
+obtener el auto
+necesitar el cliente
+hacer una reserva
+tener la oportunidad
+proporcionar sus datos personales
+suministrar la empresa
+analizar las alternativas
+indique las características
+suministrir información de los seguros
+proporcionar el servicio
+validar la tarjeta
+proporcionar él la tarjeta
+realizar la reserva
+obtener los datos
+obtener los datos personales
+analizar la disponibilidad
+reservar un auto
+tener disponibilidad
+formalizar la reserva
+registrar el alquiler
+comprobar la validez
+pagar el servicio

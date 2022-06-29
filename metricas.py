@@ -1,4 +1,4 @@
-
+import re
 
 ################## FORMULAS DE LAS METRICAS ######################
 
@@ -7,7 +7,7 @@ def requi_correctos():
         requisitos_correctos = [linea.strip() for linea in archivo]
     return requisitos_correctos
 
-print(requi_correctos())
+#print(requi_correctos())
 
 
 def requi_extraidos (requisitos_extraidos):
