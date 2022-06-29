@@ -1,13 +1,16 @@
 from difflib import SequenceMatcher as SM
-from sklearn.metrics.pairwise import cosine_similarity, cosine_distances
+import sklearn
+from sklearn.cluster import AgglomerativeClustering
+from sklearn.preprocessing import scale
+
 
 
 ######################## Buscar similitudes ###############################
 
 
-'''requisitos_extraidos = [['realizar', 'las', 'pruebas'], ['realizar', 'las', 'pruebas', 'químicas'], ['realizar', 'las', 'pruebas', 'químicas', 'ahi'], ['entregar', 'los', 'resultados'], ['tratar', 'una', 'enfermedad'], ['definir', 'las', 'indicaciones'], ['definir', 'las', 'indicaciones', 'médicas'], ['tomar', 'presión'], ['medir', 'la', 'temperatura'], ['evaluar', 'los', 'resultados'], ['hacer', 'el', 'laboratorio'], ['definir', 'las', 'indicaciones'], ['definir', 'las', 'indicaciones', 'médicas'],
+requisitos_extraidos = [['realizar', 'las', 'pruebas'], ['realizar', 'las', 'pruebas', 'químicas'], ['realizar', 'las', 'pruebas', 'químicas', 'ahi'], ['entregar', 'los', 'resultados'], ['tratar', 'una', 'enfermedad'], ['definir', 'las', 'indicaciones'], ['definir', 'las', 'indicaciones', 'médicas'], ['tomar', 'presión'], ['medir', 'la', 'temperatura'], ['evaluar', 'los', 'resultados'], ['hacer', 'el', 'laboratorio'], ['definir', 'las', 'indicaciones'], ['definir', 'las', 'indicaciones', 'médicas'],
                         ['indicar', 'las', 'pruebas'], ['indicar', 'las', 'pruebas', 'químicas'], ['definir', 'el', 'tratamiento'], ['recetar', 'medicamentos'], ['definir', 'las', 'indicaciones'], ['definir', 'las', 'indicaciones', 'médicas'], ['consultar', 'la', 'historia'], ['consultar', 'la', 'historia', 'clínica'], ['realizar', 'las', 'pruebas'], ['realizar', 'las', 'pruebas', 'clínicas'], ['examinar', 'las', 'muestras'], ['recoger', 'las', 'muestras'], ['realizar', 'los', 'exámenes'],
-                        ['recoger', 'las', 'muestras'], ['extraer', 'muestras'], ['realizar', 'los', 'exámenes'], ['realizar', 'los', 'exámenes', 'siguientes']]'''
+                        ['recoger', 'las', 'muestras'], ['extraer', 'muestras'], ['realizar', 'los', 'exámenes'], ['realizar', 'los', 'exámenes', 'siguientes']]
 
 def convertir(requisitos_extraidos):
     listas = []
@@ -36,7 +39,6 @@ def refinamiento(requisitos_extraidos):
 
 #print(refinamiento(requisitos_extraidos))
 
-
 def similitudes(requisitos_extraidos):
     l = refinamiento(requisitos_extraidos)
     listaMayor = []
@@ -55,4 +57,15 @@ def similitudes(requisitos_extraidos):
 
 #similitudes(requisitos_extraidos)
 
+'''l = refinamiento(requisitos_extraidos)
+#X_scaled = scale(refinamiento(requisitos_extraidos))
+modelo_hclust_ward = AgglomerativeClustering(
+                            affinity = 'euclidean',
+                            linkage  = 'ward',
+                            distance_threshold = 0,
+                            n_clusters         = None
+                     )
+modelo_hclust_ward.fit(X=l)
+#AgglomerativeClustering(distance_threshold=0, n_clusters=None)
 
+print(AgglomerativeClustering(distance_threshold=0, n_clusters=None))'''
