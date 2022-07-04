@@ -47,17 +47,22 @@ def similitudes(requisitos_extraidos):
     l = refinamiento(requisitos_extraidos)
     listaMayor = []
     indices_guardados = []
+    cont = 0
+    numero = 0
     for i in range(len(l)):
         filtro = []
         if i not in indices_guardados:
             for j in range(i+1, len(l)):
                 valor = round(lev.similarity(l[i], l[j]), 1)
+                numero = numero + valor
+                cont += 1
                 if valor >= 0.90 and j not in indices_guardados:
                     filtro.append(l[j])
                     indices_guardados.append(j)
             filtro.append(l[i])
             listaMayor.append(filtro)
-    return listaMayor
+    promedio = numero / cont
+    return listaMayor, promedio
 
 #similitudes(requisitos_extraidos)
 
@@ -110,6 +115,3 @@ def similitud_coseno (requisitos_extraidos):
             filtro.append(l[i])
             listaMayor.append(filtro)
     return listaMayor
-
-
-
