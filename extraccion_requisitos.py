@@ -2,6 +2,7 @@ import cargar_varios_archivos as cargar_texto
 import pre_procesamiento as pre_procesamiento
 import exportar as exportar
 import metricas as metricas
+import buscar_similitud as similitud
 
 
 # -----------------Cargar documento
@@ -17,7 +18,8 @@ if texto != "":
     exportar.exportar_resultados_coseno(requisitos_extraidos)
 
     # -----------------Metricas de calidad
-    metricas.medidaf(requisitos_extraidos)
+    '''requi_coseno = similitud.refinamiento(requisitos_extraidos)
+    metricas.medidaf(requi_coseno)'''
 
     print("Esta listo todo")
 

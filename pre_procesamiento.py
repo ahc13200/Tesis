@@ -50,11 +50,15 @@ def pre_proces(texto):
     p9 = [{"POS": "VERB"}, {"POS": "NOUN"}, {"POS": "VERB"}, {"POS": "DET"}, {"POS": "NOUN"}, {"POS": "ADJ"}]
     p10 = [{"POS": "VERB"}, {"POS": "ADJ"}, {"POS": "PRON"}, {"POS": "VERB"}, {"POS": "ADJ"}, {"POS": "DET"}, {"POS": "NOUN"}, {"POS": "ADJ"}]
     p11 = [{"POS": "VERB"}, {"POS": "ADJ"}, {"POS": "PRON"}, {"POS": "VERB"}, {"POS": "DET"}, {"POS": "NOUN"}, {"POS": "AUX"}]
-    p12 = [{"POS": "VERB"}, {"POS": "ADJ"}, {"POS": "ADP"}, {"POS": "NOUN"}, {"POS": "ADJ"}]
+    p12 = [{"POS": "VERB"}, {"POS": "CCONJ"}, {"POS": "VERB"}, {"POS": "DET"}, {"POS": "NOUN"}, {"POS": "ADP"}, {"POS": "NOUN"}]
     p13 = [{"POS": "VERB"}, {"POS": "ADV"}, {"POS": "ADP"}, {"POS": "NOUN"}, {"POS": "ADP"}, {"POS": "DET"}, {"POS": "NOUN"}, {"POS": "ADJ"}]
-    p14 = [{"POS": "VERB"}, {"POS": "NOUN"}, {"POS": "ADP"}, {"POS": "ADJ"}]
+    p14 = [{"POS": "VERB"}, {"POS": "NOUN"}, {"POS": "CCONJ"}, {"POS": "NOUN"}]
     p15 = [{"POS": "VERB"}, {"POS": "DET"}, {"POS": "NOUN"}, {"POS": "ADJ"}]
-
+    p16 = [{"POS": "VERB"}, {"POS": "DET"}, {"POS": "NOUN"}, {"POS": "CCONJ"}, {"POS": "DET"}, {"POS": "NOUN"}]
+    p17 = [{"POS": "VERB"}, {"POS": "ADP"}, {"POS": "NOUN"}]
+    p18 = [{"POS": "VERB"}, {"POS": "NOUN"}, {"POS": "ADJ"}, {"POS": "ADP"}, {"POS": "NOUN"}, {"POS": "ADJ"}]
+    p19 = [{"POS": "VERB"}, {"POS": "NOUN"}, {"POS": "ADJ"}, {"POS": "ADJ"}, {"POS": "ADP"}, {"POS": "DET"}, {"POS": "NOUN"}, {"POS": "ADP"}, {"POS": "NOUN"}]
+    p20 = [{"POS": "VERB"}, {"POS": "NOUN"}, {"POS": "ADP"}, {"POS": "NOUN"}, {"POS": "ADP"}, {"POS": "NOUN"}]
 
 
     #            ID del patron  nomb del patron
@@ -73,6 +77,11 @@ def pre_proces(texto):
     matcher.add("13", [p13])
     matcher.add("14", [p14])
     matcher.add("15", [p15])
+    matcher.add("15", [p16])
+    matcher.add("15", [p17])
+    matcher.add("15", [p18])
+    matcher.add("15", [p19])
+    matcher.add("15", [p20])
 
 
     #llamar al matcher sobre el doc
