@@ -1,4 +1,4 @@
-import buscar_similitud as buscar
+import reduccion_redundancias as buscar
 
 
 def exportar_resultados(requisitos_extraidos):

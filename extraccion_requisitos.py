@@ -2,7 +2,7 @@ import cargar_varios_archivos as cargar_texto
 import pre_procesamiento as pre_procesamiento
 import exportar as exportar
 import metricas as metricas
-import buscar_similitud as similitud
+import reduccion_redundancias as similitud
 
 
 # -----------------Cargar documento
