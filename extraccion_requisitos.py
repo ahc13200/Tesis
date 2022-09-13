@@ -18,8 +18,8 @@ if texto != "":
     exportar.exportar_resultados_coseno(requisitos_extraidos)
 
     # -----------------Metricas de calidad
-    '''requi_coseno = similitud.refinamiento(requisitos_extraidos)
-    metricas.medidaf(requi_coseno)'''
+    '''requi_coseno = similitud.similitud_coseno(requisitos_extraidos)
+    metricas.medidaf(requisitos_extraidos)'''
 
     print("Esta listo todo")
 

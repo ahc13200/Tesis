@@ -1,3 +1,3 @@
-La medida-F es : 10.389610389610391
-La cobertura es: 14.285714285714285
-La precision es: 8.16326530612245
+La medida-F es : 22.857142857142854
+La cobertura es: 34.78260869565217
+La precision es: 17.02127659574468
