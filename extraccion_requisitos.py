@@ -1,6 +1,7 @@
 import cargar_varios_archivos as cargar_texto
 import pre_procesamiento as pre_procesamiento
 import exportar as exportar
+import analisis_dependencias as anali_dependen
 import metricas as metricas
 import reduccion_redundancias as similitud
 
@@ -12,6 +13,7 @@ texto = cargar_texto.cargar_contenido()
 if texto != "":
     # -----------------Pre-peocesamiento hasta el arbol de dependencias
     requisitos_extraidos = pre_procesamiento.pre_proces(texto)
+    print(anali_dependen.analisis_depend(texto))
 
     # ----------------- Exportar resultados
     exportar.exportar_resultados(requisitos_extraidos)
