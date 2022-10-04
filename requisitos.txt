@@ -1,23 +1,20 @@
-suministrar dirección de la vivienda y nombre del propietario
-elaborar contrato de estudio de factibilidad
-recoger datos de la estructura de la vivienda
-elaborar propuesta de diseño del sistema de seguridad
-cuantificar costo de instalación, 
-cuantificar el costo de mantenimiento de la infraestructura instalada
-cuantificar el costo de atención a las incidencias que se produzcan
-aceptar propuesta de diseño
-rechazar propuesta de diseño
-modificar propuesta de diseño
-pagar servicio de estudio de factibilidad
-elaborar contrato de instalación
-elaborar contrato mantenimiento y atención
-facturar servicio de instalación
-pagar servicio de instalación
-pagar mantenimiento
-pagar atención
-calcular monto por demora
-suspender automáticamente el servicio
-notificar a bomberos y a la policía ante determinadas situaciones indeseables
-
-
-
+conciliar datos de todos los territorios
+confeccionar informe general del país
+informar cuánto dinero se puede invertir en un año para nuevas instalaciones
+planificar la cantidad que le corresponde a cada dirección territorial
+entregar dinero a dirección territorial
+definir servicios que se van a realizar el próximo año
+planificar servicio de nuevas instalaciones de telefonía fija
+planificar servicio de traslado de un hogar a otro
+planificar servicio de altas suplementarias
+planificar servicio de cambios tecnológicos
+obtener la cantidad de servicios de cada tipo y los materiales y tecnologías que se necesitan
+consultar catálogo de materiales y equipos tecnológicos para cada tipo de servicio
+detectar problemas de correspondencia en plan de inversiones de una dirección territorial
+rechazar plan de inversiones de una dirección territorial
+aprobar plan de inversiones de una dirección territorial
+elaborar plan de inversiones de la empresa
+confeccionar informe de ejecución mensual de una dirección territorial
+controlar indicadores de crecimiento telefónico, nuevos servicios, altas suplementarias y los cambios tecnológicos de una dirección territorial
+conciliar datos de todos los territorios
+confeccionar informe general del país
