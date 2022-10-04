@@ -1,6 +1,10 @@
 import spacy
 import re
+import json
 
+
+
+#extraccion de requisitos por analisis de dependencias
 def analisis_depend(texto):
 
     #cargar libreria spaCy
@@ -27,7 +31,7 @@ def analisis_depend(texto):
     sentences = list(doc.sents)
     for sentence in sentences:
         lista = []
-        lista.append(sentence.root)
+        lista.append(sentence.root.text)
         for child in sentence.root.children:
             if child.dep_ == 'nsubj':
                 subj = child
@@ -36,9 +40,30 @@ def analisis_depend(texto):
             elif child.dep_ == 'obj':
                     obj = child
                     #subtree_obj = [t.text for t in obj.subtree]
-                    lista.append(obj)
+                    lista.append(obj.text)
         frases.append(lista)
     return frases
 
-#print(analisis_depend())
+
+#convertir las listas de palabras en listas de frases
+def convertir(texto):
+    requisitos_extraidos = analisis_depend(texto)
+    listas = []
+    for requi in requisitos_extraidos:
+        l = []
+        if type(requi) == list:
+            for i in requi:
+                if type(i) == list:
+                    r = " ".join([str(_) for _ in i])
+                    l.append(r)
+                else:
+                    l.append(i)
+        else:
+            l.append(r)
+        listas.append(l)
+    return listas
+
+
+#print(convertir())
+
 

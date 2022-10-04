@@ -12,16 +12,16 @@ texto = cargar_texto.cargar_contenido()
 
 if texto != "":
     # -----------------Pre-peocesamiento hasta el arbol de dependencias
-    requisitos_extraidos = pre_procesamiento.pre_proces(texto)
-    print(anali_dependen.analisis_depend(texto))
+    #requisitos_extraidos = pre_procesamiento.pre_proces(texto)
+    requisitos_extraidos = anali_dependen.convertir(texto)
 
     # ----------------- Exportar resultados
     exportar.exportar_resultados(requisitos_extraidos)
     exportar.exportar_resultados_coseno(requisitos_extraidos)
 
     # -----------------Metricas de calidad
-    '''requi_coseno = similitud.similitud_coseno(requisitos_extraidos)
-    metricas.medidaf(requisitos_extraidos)'''
+    #requi_coseno = similitud.similitud_coseno(requisitos_extraidos)
+    #metricas.medidaf(requisitos_extraidos)
 
     print("Esta listo todo")
 

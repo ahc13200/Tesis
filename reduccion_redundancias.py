@@ -5,16 +5,19 @@ from sklearn.preprocessing import scale
 import re, math
 from collections import Counter
 from hermetrics.levenshtein import Levenshtein
+import similarities as similitud
 
 
 
 ######################## Buscar similitudes ###############################
 
-
-'''requisitos_extraidos = [['realizar', 'las', 'pruebas'], ['realizar', 'las', 'pruebas', 'químicas'], ['realizar', 'las', 'pruebas', 'químicas', 'ahi'], ['entregar', 'los', 'resultados'], ['tratar', 'una', 'enfermedad'], ['definir', 'las', 'indicaciones'], ['definir', 'las', 'indicaciones', 'médicas'], ['tomar', 'presión'], ['medir', 'la', 'temperatura'], ['evaluar', 'los', 'resultados'], ['hacer', 'el', 'laboratorio'], ['definir', 'las', 'indicaciones'], ['definir', 'las', 'indicaciones', 'médicas'],
+#Esto es para probar el modulo independiente
+requisitos_extraidos = [['realizar', 'las', 'pruebas'], ['realizar', 'las', 'pruebas', 'químicas'], ['realizar', 'las', 'pruebas', 'químicas', 'ahi'], ['entregar', 'los', 'resultados'], ['tratar', 'una', 'enfermedad'], ['definir', 'las', 'indicaciones'], ['definir', 'las', 'indicaciones', 'médicas'], ['tomar', 'presión'], ['medir', 'la', 'temperatura'], ['evaluar', 'los', 'resultados'], ['hacer', 'el', 'laboratorio'], ['definir', 'las', 'indicaciones'], ['definir', 'las', 'indicaciones', 'médicas'],
                         ['indicar', 'las', 'pruebas'], ['indicar', 'las', 'pruebas', 'químicas'], ['definir', 'el', 'tratamiento'], ['recetar', 'medicamentos'], ['definir', 'las', 'indicaciones'], ['definir', 'las', 'indicaciones', 'médicas'], ['consultar', 'la', 'historia'], ['consultar', 'la', 'historia', 'clínica'], ['realizar', 'las', 'pruebas'], ['realizar', 'las', 'pruebas', 'clínicas'], ['examinar', 'las', 'muestras'], ['recoger', 'las', 'muestras'], ['realizar', 'los', 'exámenes'],
-                        ['recoger', 'las', 'muestras'], ['extraer', 'muestras'], ['realizar', 'los', 'exámenes'], ['realizar', 'los', 'exámenes', 'siguientes']]'''
+                        ['recoger', 'las', 'muestras'], ['extraer', 'muestras'], ['realizar', 'los', 'exámenes'], ['realizar', 'los', 'exámenes', 'siguientes']]
 
+
+#convertir las listas de palabras en listas de frases
 def convertir(requisitos_extraidos):
     listas = []
     for requi in requisitos_extraidos:
@@ -22,10 +25,9 @@ def convertir(requisitos_extraidos):
         listas.append(r)
     return listas
 
-#print(convertir(requisitos_extraidos))
 
 
-
+#si requisito chico esta dentro de requisito grande
 def refinamiento(requisitos_extraidos):
     lista = []
     requisitos = convertir(requisitos_extraidos)
@@ -40,8 +42,8 @@ def refinamiento(requisitos_extraidos):
             lista.append(requisitos[i])
     return lista
 
-#print(refinamiento(requisitos_extraidos))
 
+#buscar similitud sintactica por Levenshtein
 def similitudes(requisitos_extraidos):
     lev = Levenshtein()
     l = refinamiento(requisitos_extraidos)
@@ -64,22 +66,8 @@ def similitudes(requisitos_extraidos):
     promedio = numero / cont
     return listaMayor, promedio
 
-#similitudes(requisitos_extraidos)
 
-def algoritmo_agrupamiento_jerarquico(requisitos_extraidos):
-    l = refinamiento(requisitos_extraidos)
-    #X_scaled = scale(refinamiento(requisitos_extraidos))
-    modelo_hclust_ward = AgglomerativeClustering(
-                                affinity = 'euclidean',
-                                linkage  = 'ward',
-                                distance_threshold = 0,
-                                n_clusters         = None
-                         )
-    modelo_hclust_ward.fit(X=l)
-
-#AgglomerativeClustering(distance_threshold=0, n_clusters=None)
-
-
+#metrica similitud coseno
 def get_cosine(vec1, vec2):
     intersection = set(vec1.keys()) & set(vec2.keys())
     numerator = sum([vec1[x] * vec2[x] for x in intersection])
@@ -98,6 +86,8 @@ def text_to_vector(text):
     words = WORD.findall(text)
     return Counter(words)
 
+
+#buscar similitud sintactica por Coseno
 def similitud_coseno (requisitos_extraidos):
     l = refinamiento(requisitos_extraidos)
     listaMayor = []
@@ -115,3 +105,19 @@ def similitud_coseno (requisitos_extraidos):
             filtro.append(l[i])
             listaMayor.append(filtro)
     return listaMayor
+
+
+#buscar similitud semantica
+'''def similitud_semnatica(requisitos_extraidos):
+    l = refinamiento(requisitos_extraidos)
+    listaMayor = []
+    indices_guardados = []
+    for i in range(len(l)):
+        filtro = []
+        if i not in indices_guardados:
+            for j in range(i + 1, len(l)):
+                listaMayor = similitud.sentences_similarity(l[i], None, l[j], None, None)
+    return listaMayor
+
+
+print(similitud_semnatica(requisitos_extraidos))'''
