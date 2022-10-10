@@ -12,8 +12,8 @@ texto = cargar_texto.cargar_contenido()
 
 if texto != "":
     # -----------------Pre-peocesamiento hasta el arbol de dependencias
-    #requisitos_extraidos = pre_procesamiento.pre_proces(texto)
-    requisitos_extraidos = anali_dependen.convertir(texto)
+    requisitos_extraidos = pre_procesamiento.pre_proces(texto)
+    #requisitos_extraidos = anali_dependen.convertir(texto)
 
     # ----------------- Exportar resultados
     exportar.exportar_resultados(requisitos_extraidos)

@@ -39,7 +39,7 @@ def pre_proces(texto):
     matcher = Matcher(nlp.vocab)
 
     #Annadir patron basado en regla al matcher
-    p1 = [{"POS": "VERB"}, {"POS": "NOUN"}]
+    '''p1 = [{"POS": "VERB"}, {"POS": "NOUN"}]
     p2 = [{"POS": "VERB"}, {"POS": "NOUN"}, {"POS": "ADJ"}]
     p3 = [{"POS": "VERB"}, {"POS": "DET"}, {"POS": "NOUN"}]
     p4 = [{"POS": "VERB"}, {"POS": "NOUN"}, {"POS": "ADP"}, {"POS": "NOUN"}]
@@ -81,8 +81,16 @@ def pre_proces(texto):
     matcher.add("15", [p17])
     matcher.add("15", [p18])
     matcher.add("15", [p19])
-    matcher.add("15", [p20])
+    matcher.add("15", [p20])'''
 
+    # Annadir patrones desde un archivo externo
+    patterns = open("patterns\\es_patterns.txt", 'r').read().split("\n")
+    for i in range(len(patterns)):
+        poss = patterns[i].split(" ")
+        p = []
+        for pos in poss:
+            p.append({"POS": pos})
+        matcher.add(str(i+1), [p])
 
     #llamar al matcher sobre el doc
     matches = matcher(doc)
