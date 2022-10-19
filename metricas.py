@@ -1,5 +1,6 @@
 import re
-from hermetrics.levenshtein import Levenshtein
+import Levenshtein
+import reduccion_redundancias as similitud_sintactica
 
 ################## FORMULAS DE LAS METRICAS ######################
 
@@ -11,33 +12,40 @@ def requi_correctos():
 #print(requi_correctos())
 
 
-def requi_extraidos (requisitos_extraidos):
-    lev = Levenshtein()
+def comparacion_correctos_con_extraidos (requisitos_extraidos):
     requisitos_correctos = requi_correctos()
     requisitos_extraidos_correctos = []
     for r in requisitos_correctos:
         for requi in requisitos_extraidos:
             a = " ".join([str(_) for _ in requi])
-            valor = round(lev.similarity(r, a, 1))
-            if valor >= 0.80:
+            valor = round(Levenshtein.ratio(r, a), 1)
+            '''vector1 = similitud_sintactica.text_to_vector(r)
+            vector2 = similitud_sintactica.text_to_vector(a)
+            valor = round(similitud_sintactica.get_cosine(vector1, vector2), 1)'''
+            if valor >= 0.60:
                 requisitos_extraidos_correctos.append(a)
 
     return requisitos_extraidos_correctos
 
 
 def medidaf(requisitos_extraidos):
-    requisitos_extraidos_correctos = requi_extraidos(requisitos_extraidos)
+    requisitos_extraidos_correctos = comparacion_correctos_con_extraidos(requisitos_extraidos)
     requisitos_correctos = requi_correctos()
 
     precision = (len(requisitos_extraidos_correctos) / len(requisitos_extraidos))*100
     cobertura = (len(requisitos_extraidos_correctos) / len(requisitos_correctos))*100
-    medida = 2 * ((precision * cobertura) / (precision + cobertura))
+
+    if cobertura > 0 and precision > 0:
+        medida = 2 * ((precision * cobertura) / (precision + cobertura))
+    else:
+        medida = 0
 
     archivo = open('medidaF.txt', 'w')
-    archivo.write('La medida-F es : ' + str(medida) + "\n"
-                  'La cobertura es: ' + str(cobertura) + "\n"
-                  'La precision es: ' + str(precision))
+    archivo.write('La precision es : ' + str(precision) + "\n"
+                'La cobertura es: ' + str(cobertura) + "\n"
+                'La medida-F es: ' + str(medida))
     archivo.close()
+
 
 
 #medidaf(requisitos_extraidos, requisitos_correctos)

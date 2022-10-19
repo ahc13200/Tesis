@@ -12,12 +12,12 @@ import similarities as similitud
 ######################## Buscar similitudes ###############################
 
 #Esto es para probar el modulo independiente
-requisitos_extraidos = [['realizar', 'las', 'pruebas'], ['realizar', 'las', 'pruebas', 'químicas'], ['realizar', 'las', 'pruebas', 'químicas', 'ahi'], ['entregar', 'los', 'resultados'], ['tratar', 'una', 'enfermedad'], ['definir', 'las', 'indicaciones'], ['definir', 'las', 'indicaciones', 'médicas'], ['tomar', 'presión'], ['medir', 'la', 'temperatura'], ['evaluar', 'los', 'resultados'], ['hacer', 'el', 'laboratorio'], ['definir', 'las', 'indicaciones'], ['definir', 'las', 'indicaciones', 'médicas'],
+'''requisitos_extraidos = [['realizar', 'las', 'pruebas'], ['realizar', 'las', 'pruebas', 'químicas'], ['realizar', 'las', 'pruebas', 'químicas', 'ahi'], ['entregar', 'los', 'resultados'], ['tratar', 'una', 'enfermedad'], ['definir', 'las', 'indicaciones'], ['definir', 'las', 'indicaciones', 'médicas'], ['tomar', 'presión'], ['medir', 'la', 'temperatura'], ['evaluar', 'los', 'resultados'], ['hacer', 'el', 'laboratorio'], ['definir', 'las', 'indicaciones'], ['definir', 'las', 'indicaciones', 'médicas'],
                         ['indicar', 'las', 'pruebas'], ['indicar', 'las', 'pruebas', 'químicas'], ['definir', 'el', 'tratamiento'], ['recetar', 'medicamentos'], ['definir', 'las', 'indicaciones'], ['definir', 'las', 'indicaciones', 'médicas'], ['consultar', 'la', 'historia'], ['consultar', 'la', 'historia', 'clínica'], ['realizar', 'las', 'pruebas'], ['realizar', 'las', 'pruebas', 'clínicas'], ['examinar', 'las', 'muestras'], ['recoger', 'las', 'muestras'], ['realizar', 'los', 'exámenes'],
-                        ['recoger', 'las', 'muestras'], ['extraer', 'muestras'], ['realizar', 'los', 'exámenes'], ['realizar', 'los', 'exámenes', 'siguientes']]
+                        ['recoger', 'las', 'muestras'], ['extraer', 'muestras'], ['realizar', 'los', 'exámenes'], ['realizar', 'los', 'exámenes', 'siguientes']]'''
 
 
-#convertir las listas de palabras en listas de frases
+# convertir las listas de palabras en listas de frases
 def convertir(requisitos_extraidos):
     listas = []
     for requi in requisitos_extraidos:
@@ -26,11 +26,10 @@ def convertir(requisitos_extraidos):
     return listas
 
 
-
 #si requisito chico esta dentro de requisito grande
-def refinamiento(requisitos_extraidos):
-    lista = []
+def reduccion(requisitos_extraidos):
     requisitos = convertir(requisitos_extraidos)
+    lista = []
     for i in range(len(requisitos)):
         repetido = False
         for j in range(i + 1, len(requisitos)):
@@ -42,29 +41,25 @@ def refinamiento(requisitos_extraidos):
             lista.append(requisitos[i])
     return lista
 
+# ---------------------------------- SIMILITUD SINTACTICA ------------------------------------------
 
 #buscar similitud sintactica por Levenshtein
 def similitudes(requisitos_extraidos):
     lev = Levenshtein()
-    l = refinamiento(requisitos_extraidos)
+    l = reduccion(requisitos_extraidos)
     listaMayor = []
     indices_guardados = []
-    cont = 0
-    numero = 0
     for i in range(len(l)):
         filtro = []
         if i not in indices_guardados:
             for j in range(i+1, len(l)):
                 valor = round(lev.similarity(l[i], l[j]), 1)
-                numero = numero + valor
-                cont += 1
                 if valor >= 0.90 and j not in indices_guardados:
                     filtro.append(l[j])
                     indices_guardados.append(j)
             filtro.append(l[i])
             listaMayor.append(filtro)
-    promedio = numero / cont
-    return listaMayor, promedio
+    return listaMayor
 
 
 #metrica similitud coseno
@@ -89,7 +84,7 @@ def text_to_vector(text):
 
 #buscar similitud sintactica por Coseno
 def similitud_coseno (requisitos_extraidos):
-    l = refinamiento(requisitos_extraidos)
+    l = reduccion(requisitos_extraidos)
     listaMayor = []
     indices_guardados = []
     for i in range(len(l)):
@@ -106,6 +101,7 @@ def similitud_coseno (requisitos_extraidos):
             listaMayor.append(filtro)
     return listaMayor
 
+# ---------------------------------- SIMILITUD SEMANTICA ------------------------------------------
 
 #buscar similitud semantica
 '''def similitud_semnatica(requisitos_extraidos):
