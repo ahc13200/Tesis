@@ -1,3 +1,0 @@
-La precision es : 159.74025974025975
-La cobertura es: 227.77777777777777
-La medida-F es: 187.78625954198472

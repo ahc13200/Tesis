@@ -14,6 +14,7 @@ def pre_proces(texto):
     lista = []
     for sentence in doc.sents:
         lista.append(sentence)
+    #print(len(lista))
 
     texto_procesado = " ".join([str(_) for _ in lista])
 

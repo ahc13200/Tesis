@@ -5,9 +5,7 @@ import spacy
 from spacy.matcher import Matcher
 
 
-'''texto = "La Empresa RentaCar se dedica a la renta de autos a personas naturales que desean alquilar un automóvil. "
-                   "Los clientes deben suministrar sus datos personales a la empresa y los servicios extra que necesita le proporcionen."
-                   "A su vez deben informarles sobre los modelos y precios de los vehículos que tienen para la renta. Las universidades consideradas cobran tarifas elevadas.'''
+#texto = "La Empresa RentaCar se dedica a la renta de autos a personas naturales que desean alquilar un automóvil. Los clientes deben suministrar sus datos personales a la empresa y los servicios extra que necesita le proporcionen. A su vez deben informarles sobre los modelos y precios de los vehículos que tienen para la renta. Las universidades consideradas cobran tarifas elevadas."
 
 def cargar_spacy(texto):
     nlp = spacy.load(r'C:\Users\Amanda\AppData\Local\Programs\Python\Python39\Lib\site-packages\es_core_news_lg\es_core_news_lg-3.2.0')
@@ -172,6 +170,13 @@ def analisis_dependencias(texto):
     return requisitos_extraidos
 
 
-#print(patrones_lexicos_sintacticos())
+# -------------------------------- METODO HIBIRIDO ------------------------
+def metodo_hibrido(texto):
+    patrones = patrones_lexicos_sintacticos(texto)
+    dependencias = analisis_dependencias(texto)
 
+    requisitos_extraidos = patrones + dependencias
 
+    return requisitos_extraidos
+
+#print(metodo_hibrido(texto))

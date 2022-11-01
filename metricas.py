@@ -15,20 +15,20 @@ def requi_correctos():
 def comparacion_correctos_con_extraidos (requisitos_extraidos):
     requisitos_correctos = requi_correctos()
     requisitos_extraidos_correctos = []
-    for r in requisitos_correctos:
-        for requi in requisitos_extraidos:
-            a = " ".join([str(_) for _ in requi])
-            valor = round(Levenshtein.ratio(r, a), 1)
-            '''vector1 = similitud_sintactica.text_to_vector(r)
-            vector2 = similitud_sintactica.text_to_vector(a)
+    for r in requisitos_extraidos:
+        a = " ".join([str(_) for _ in r])
+        for requi in requisitos_correctos:
+            valor = round(Levenshtein.ratio(a, requi), 1)
+            '''vector1 = similitud_sintactica.text_to_vector(a)
+            vector2 = similitud_sintactica.text_to_vector(requi)
             valor = round(similitud_sintactica.get_cosine(vector1, vector2), 1)'''
             if valor >= 0.60:
                 requisitos_extraidos_correctos.append(a)
-
+                break
     return requisitos_extraidos_correctos
 
 
-def medidaf(requisitos_extraidos):
+def medidaf_patrones(requisitos_extraidos):
     requisitos_extraidos_correctos = comparacion_correctos_con_extraidos(requisitos_extraidos)
     requisitos_correctos = requi_correctos()
 
@@ -40,12 +40,46 @@ def medidaf(requisitos_extraidos):
     else:
         medida = 0
 
-    archivo = open('medidaF.txt', 'w')
+    archivo = open('medidaF_PATRONES.txt', 'w')
     archivo.write('La precision es : ' + str(precision) + "\n"
                 'La cobertura es: ' + str(cobertura) + "\n"
                 'La medida-F es: ' + str(medida))
     archivo.close()
 
 
+def medidaf_dependencias(requisitos_extraidos):
+    requisitos_extraidos_correctos = comparacion_correctos_con_extraidos(requisitos_extraidos)
+    requisitos_correctos = requi_correctos()
 
-#medidaf(requisitos_extraidos, requisitos_correctos)
+    precision = (len(requisitos_extraidos_correctos) / len(requisitos_extraidos))*100
+    cobertura = (len(requisitos_extraidos_correctos) / len(requisitos_correctos))*100
+
+    if cobertura > 0 and precision > 0:
+        medida = 2 * ((precision * cobertura) / (precision + cobertura))
+    else:
+        medida = 0
+
+    archivo = open('medidaF_DEPENDENCIAS.txt', 'w')
+    archivo.write('La precision es : ' + str(precision) + "\n"
+                'La cobertura es: ' + str(cobertura) + "\n"
+                'La medida-F es: ' + str(medida))
+    archivo.close()
+
+
+def medidaf_hibrido(requisitos_extraidos):
+    requisitos_extraidos_correctos = comparacion_correctos_con_extraidos(requisitos_extraidos)
+    requisitos_correctos = requi_correctos()
+
+    precision = (len(requisitos_extraidos_correctos) / len(requisitos_extraidos))*100
+    cobertura = (len(requisitos_extraidos_correctos) / len(requisitos_correctos))*100
+
+    if cobertura > 0 and precision > 0:
+        medida = 2 * ((precision * cobertura) / (precision + cobertura))
+    else:
+        medida = 0
+
+    archivo = open('medidaF_HIBRIDO.txt', 'w')
+    archivo.write('La precision es : ' + str(precision) + "\n"
+                'La cobertura es: ' + str(cobertura) + "\n"
+                'La medida-F es: ' + str(medida))
+    archivo.close()
