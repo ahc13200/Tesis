@@ -1,6 +1,54 @@
-recopilar información de un sensor
-controlar que una bomba entrega al usuario una dosis regulada de insulina
-calcular los niveles de azúcar en sangre
-administrar dosis adecuada de insulina
-calcular la cantidad de insulina que se necesita
-enviar señal a una bomba miniaturizada para suministrar la insulina requerida
+realizar solicitudes de matrícula para cursos de postgrados
+aceptar solicitud de matrícula de un aspirante a un curso de postgrado
+rechazar solicitud de matrícula de un aspirante a un curso de postgrado
+corregir documentos de matrícula a un curso de postgrado
+notificar al aspirante aceptación de la solicitud de matrícula
+notificar al aspirante rechazo de la solicitud de matrícula
+verificar acta de notas
+cerrar matrícula de un curso de postgrado
+abrir matrícula de un curso de postgrado
+publicar cursos de postgrados
+confeccionar certificado de notas de un curso de postgrado
+emitir notas de un curso de postgrado en el acta de notas
+archivar acta de notas en el expediente del curso de postgrado
+notificar a estudiantes que ya están las notas de un curso de postgrado
+confeccionar acta de notas de un curso de postgrados
+llenar el libro de entrada para curso de postgrado
+asignar tomo y folio
+imprimir certificación de notas de un curso de postgrado
+cerrar un curso de postgrado
+consultar nota de un curso de postgrado
+conformar la solicitud de matrícula
+revisar la solicitud de matrícula
+incluir solicitud de matrícula en el expediente de solicitudes de cursos de postgrado
+entregar la planilla de solicitud de matrícula de postgrado, el currículo y el título universitario
+entregar a la comisión de postgrado el expediente de solicitudes de cursos de postgrado, la secuencia de actividades del curso en cuestión y el libro de solicitudes pendientes
+seleccionar aspirantes a matricular para un curso
+revisar catálogo de estados de prioridad
+registrar matrícula de un curso en el modelo de matrícula del curso
+recepcionar los cursos de postgrados que se van a impartir
+analizar el listado de líneas de investigación y el listado de profesores del departamento con necesidades de entrenamiento
+determinar la viabilidad de un curso de postrado
+asignar profesor que impartirá el curso de postgrado
+notificar al profesor que ha sido asignado a un curso
+suministrar al profesor secuencia de actividades
+obtener del directorio ldap el listado de profesores del departamento
+obtener el listado de líneas de investigación consumiendo un servicio del sistema codice
+llenar secuencia de actividades
+verificar que no existan en un período especificado dos cursos planificados
+reajustar el horario o periodo concebido de un curso de postgrado
+archivar secuencia de actividades en la lista de cursos de postgrado a ofertar
+borrar curso de la lista de cursos de postgrado a ofertar
+suspender un curso de la lista de cursos de postgrado
+actualizar algunos parámetros de la secuencia de actividades
+entregar al profesor modelo de matrícula del curso
+archivar solicitudes que quedaron fuera de la matrícula en el libro de solicitudes pendientes
+asignar prioridad a las solicitudes
+ordenar solicitudes de matrícula de acuerdo a la prioridad
+eliminar solicitud pendiente de la lista de solicitudes pendientes
+obtener el valor de los criterios de acuerdo a la solicitud de matrícula
+calcular el peso de los criterios
+aprobar acta de nota
+rechazar acta de nota
+confeccionar el modelo de recalificación del curso
+archivar modelo de recalificación del curso en el expediente del curso de postgrado

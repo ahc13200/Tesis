@@ -19,19 +19,19 @@ if texto != "":
     requisitos_extraidos_HIBRIDO = extraccion_requisitos_candidatos.metodo_hibrido(texto_procesado)
 
     # ----------------- Reduccion de redundancias --------------------------------------------------------------------------
-    requisitos_extraidos_reducidos_PATRONES = reduccion_redundancias.similitudes(requisitos_extraidos_PATRONES)
-    requisitos_extraidos_reducidos_DEPENDENCIAS = reduccion_redundancias.similitudes(requisitos_extraidos_DEPENDENCIAS)
-    requisitos_extraidos_reducidos_HIBRIDO = reduccion_redundancias.similitudes(requisitos_extraidos_HIBRIDO)
+    requisitos_extraidos_reducidos_PATRONES = reduccion_redundancias.similitudes_sintactica(requisitos_extraidos_PATRONES)
+    requisitos_extraidos_reducidos_DEPENDENCIAS = reduccion_redundancias.similitudes_sintactica(requisitos_extraidos_DEPENDENCIAS)
+    requisitos_extraidos_reducidos_HIBRIDO = reduccion_redundancias.similitudes_sintactica(requisitos_extraidos_HIBRIDO)
 
-    #requisitos_extraidos_reducidos = reduccion_redundancias.similitud_coseno(requisitos_extraidos)
+    #requisitos_extraidos_reducidos_HIBRIDO_semantica= reduccion_redundancias.similitudes_semantica(requisitos_extraidos_HIBRIDO)
 
     # ----------------- Exportar resultados --------------------------------------------------------------------------------
-    exportar.exportar_resultados(requisitos_extraidos_reducidos_HIBRIDO)
-    #exportar.exportar_resultados_coseno(requisitos_mezclados)
+    exportar.exportar_resultados_sintactica(requisitos_extraidos_reducidos_HIBRIDO)
+    #exportar.exportar_resultados_semantica(requisitos_extraidos_reducidos_HIBRIDO_semantica)
 
     # -----------------Metricas de calidad ---------------------------------------------------------------------------------
     metricas.medidaf_patrones(requisitos_extraidos_reducidos_PATRONES)
-    metricas.medidaf_dependencias(requisitos_extraidos_DEPENDENCIAS)
+    metricas.medidaf_dependencias(requisitos_extraidos_reducidos_DEPENDENCIAS)
     metricas.medidaf_hibrido(requisitos_extraidos_reducidos_HIBRIDO)
 
     print("Requisitos candidatos extraídos satisfactoriamente")

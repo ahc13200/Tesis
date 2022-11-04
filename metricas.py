@@ -16,14 +16,14 @@ def comparacion_correctos_con_extraidos (requisitos_extraidos):
     requisitos_correctos = requi_correctos()
     requisitos_extraidos_correctos = []
     for r in requisitos_extraidos:
-        a = " ".join([str(_) for _ in r])
+        #a = " ".join([str(_) for _ in r])
         for requi in requisitos_correctos:
-            valor = round(Levenshtein.ratio(a, requi), 1)
+            valor = round(Levenshtein.ratio(r, requi), 1)
             '''vector1 = similitud_sintactica.text_to_vector(a)
             vector2 = similitud_sintactica.text_to_vector(requi)
             valor = round(similitud_sintactica.get_cosine(vector1, vector2), 1)'''
             if valor >= 0.60:
-                requisitos_extraidos_correctos.append(a)
+                requisitos_extraidos_correctos.append(r)
                 break
     return requisitos_extraidos_correctos
 

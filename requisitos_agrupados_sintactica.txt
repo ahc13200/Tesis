@@ -1,0 +1,161 @@
+apoyar la capacitación
+existir departamentos y líneas
+tributar los profesores
+existir un área
+pasar un curso
+tener derecho
+realizar solicitudes
+cursar maestrías y diplomados
+conocer qué cursos
+realizar la recepción
+analizar el listado
+determinar la viabilidad
+asignar el profesor
+impartir el curso
+comunicar al profesor
+suministrar él la secuencia
+obtener del directorio
+contar la universidad
+consumir un servicio
+llenar la secuencia
+definir la semana
+tener una secuencia
+existir un coincidencia
+reajustar el horario
+ofertar la fecha
+llegar la fecha
+tener lugar
+dar el caso
+aplacir el curso
+definir la matrícula
+contener referencia al curso
+tener el cuño
+entregar la planilla
+conformar la solicitud
+informar al aspirante
+rechazar la solicitud
+cerrar la matrícula
+corregir los documentos
+notificar al aspirante
+consistir la selección
+producir el cierre
+contener información de los aspirantes
+seleccionar aspirantes
+revisar el catálogo
+entregar al profesor
+archivar estas solicitudes
+funcionar la asignación
+fijar un valor
+realizar los pasos siguientes
+asignar una prioridad
+ordenar las solicitudes
+asignar la prioridad
+obtener el valor
+contener el catálogo
+calcular el peso
+usar la fórmula
+dar una prioridad
+seguir la tabla
+mostrar los datos
+[ 0.29
+terminar el curso
+finalizar el curso
+emitir la nota
+llenar el acta
+producir la evaluación
+suministrar al profesor
+confeccionar el certificado
+hacer el vicedecano docente
+tener constancia
+tener constancia de los certificados
+llenar el libro
+recoger el nombre
+asignar estos números
+imprimir certificación de notas
+estar el acta
+consultar la nota
+rechazar el acta
+demostrar la validez
+emitir y confeccionar el modelo de recalificación
+producir un conjunto
+tarea gestión cursos de postrado 
+
+
+
+ gestión cursos de postrado 
+
+
+
+ gestión cursos de postrado 
+
+
+
+ como parte de la formación profesional ,
+comienza el proceso
+existe un área de postgrado que se encarga de toda la actividad post-graduada
+
+
+ fragmentos
+tienen los profesores , especialistas , así como el personal externo a la universidad derecho
+realiza la recepción de los cursos de postgrados que se van a impartir
+determinan los cursos de postgrado que se ofertan
+analiza el jefe de investigación listado
+comunica el jefe de investigación lo profesor
+obtiene el listado de profesores del departamento directorio ldap
+
+
+ el profesor llena la secuencia de actividades
+define descripción
+tiene un curso de postgrado secuencia
+impartido un curso de postgrado profesor
+verificar la secretaria de postgrado
+diferente el horario de clases
+reajustar el profesor del curso el horario , o período concebido
+archivada la secuencia de actividades
+contiene la lista de cursos de postgrado
+importante esta información
+entregadas las solicitudes
+
+
+
+definir algunos parámetros de la secuencia de actividades ( horario de clases , fecha de inicio y fin , tipo de actividades desglosadas por semanas )
+ocurrir
+presenta el aspirante se oficina
+contiene la planilla curso
+tener esta planilla cuño
+comprueba
+revisa la secretaria
+correcta la solicitud de matrícula en el expediente de solicitudes de curso de postgrado
+hay expediente
+informa la secretaria
+corregir el aspirante documentos
+hay
+vuelve 
+
+ en qué consiste la selección de los aspirantes 
+
+ este proceso en algunas ocasiones según sea la demanda del curso
+produce el cierre de matrícula
+entrega libro
+selecciona la comisión aspirantes
+revisa la comisión catálogo
+queda la matrícula del curso registrada
+entrega la secretaria profesor copia
+tiene el modelo de matrícula del curso   solicitudes
+archiva la secretaria solicitudes
+queda claro
+tiene cada prioridad subniveles
+categoría los criterios que influyen en la decisión
+fija le un valor
+elimina seleccionados
+obtiene el valor de los criterios de acuerdo a los datos plasmados en la planilla de solicitud de matrícula de postgrado y currículo , en conjunto con las descripciones de prioridad que contiene el catálogo
+dato la prioridad
+responsable el profesor de la asignatura
+llenar este acta
+verifica la secretaria
+presentada el acta de nota secretaria
+suministrada el acta de nota profesor
+firmado este certificado profesor
+hacer la firma complementaria la el vicedecano docente
+validado este modelo secretaria
+evaluado comisión
