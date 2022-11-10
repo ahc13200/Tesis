@@ -5,9 +5,6 @@ from sklearn.preprocessing import scale
 import re, math
 from collections import Counter
 from hermetrics.levenshtein import Levenshtein
-import similarities as similitud
-import extraccion_requisitos_candidatos as erc
-import nltk
 
 
 
@@ -121,83 +118,3 @@ def similitud_coseno (requisitos_extraidos):
             filtro.append(l[i])
             listaMayor.append(filtro)
     return listaMayor
-
-# ---------------------------------- SIMILITUD SEMANTICA ------------------------------------------
-
-#buscar similitud semantica
-
-def segmentar(frase1, frase2):
-    frase1_token = nltk.WordPunctTokenizer().tokenize(frase1)
-    frase2_token = nltk.WordPunctTokenizer().tokenize(frase2)
-
-    return frase1_token, frase2_token
-
-def ocurrencia(word, frase1, frase2):
-    cont = 0
-    for token in frase1:
-        if word in token:
-            cont+=1
-    for token in frase2:
-        if word in token:
-            cont+=1
-    return cont
-
-def conocurrencia(word1, word2, frase1, frase2):
-    cont = 0
-    if word1 in frase1 and word2 in frase1:
-        cont+=1
-    if word1 in frase2 and word2 in frase2:
-        cont+=1
-    return cont
-
-def construir_diccionarios(frase1, frase2):
-    dicc_ocu = {}
-    dicc_concu = {}
-
-    #ocurrencia
-    for token in frase1:
-        dicc_ocu[token] = ocurrencia(token, frase1, frase2)
-    for token in frase2:
-        dicc_ocu[token] = ocurrencia(token, frase1, frase2)
-
-    #concurrencia
-    for token in frase1:
-        for token1 in frase2:
-            dicc_concu[token, token1] = conocurrencia(token, token1, frase1, frase2)
-
-    return dicc_ocu, dicc_concu
-
-def calcular_relacion_semantica(f1, f2):
-    pmi = 0
-    cont = 0
-    frase1, frase2 = segmentar(f1, f2)
-    dicc_ocu, dicc_concu = construir_diccionarios(frase1, frase2)
-
-    for token in frase1:
-        for token1 in frase2:
-            ocu1 = dicc_ocu[token]
-            ocu2 = dicc_ocu[token1]
-            concu = dicc_concu[token, token1]
-            pmi += concu/(ocu1*ocu2)
-            cont+=1
-    return pmi/cont
-
-
-#buscar similitud semantica por PMI
-def similitudes_semantica(requisitos_extraidos):
-    l = reduccion(requisitos_extraidos)
-    listaMayor = []
-    indices_guardados = []
-    for i in range(len(l)):
-        filtro = []
-        if i not in indices_guardados:
-            for j in range(i+1, len(l)):
-                valor = round(calcular_relacion_semantica(l[i], l[j]), 2)
-                if valor >= 0.50 and j not in indices_guardados:
-                    filtro.append(l[j])
-                    indices_guardados.append(j)
-            filtro.append(l[i])
-            listaMayor.append(filtro)
-    return listaMayor
-
-#print(similitudes_sintactica(requisitos_extraidos))

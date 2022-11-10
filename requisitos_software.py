@@ -4,6 +4,7 @@ import extraccion_requisitos_candidatos as extraccion_requisitos_candidatos
 import reduccion_redundancias as reduccion_redundancias
 import exportar as exportar
 import metricas as metricas
+import agrupamiento as agrupamiento
 
 # -----------------Cargar documento
 texto = cargar_texto.cargar_contenido()
@@ -23,11 +24,12 @@ if texto != "":
     requisitos_extraidos_reducidos_DEPENDENCIAS = reduccion_redundancias.similitudes_sintactica(requisitos_extraidos_DEPENDENCIAS)
     requisitos_extraidos_reducidos_HIBRIDO = reduccion_redundancias.similitudes_sintactica(requisitos_extraidos_HIBRIDO)
 
-    #requisitos_extraidos_reducidos_HIBRIDO_semantica= reduccion_redundancias.similitudes_semantica(requisitos_extraidos_HIBRIDO)
+    # ----------------- Agrupamiento basado en la semantica ---------------------------------------------------------------
+    requisitos_agrupados, promedio_calidad = agrupamiento.topic_identification(requisitos_extraidos_reducidos_PATRONES)
 
     # ----------------- Exportar resultados --------------------------------------------------------------------------------
     exportar.exportar_resultados_sintactica(requisitos_extraidos_reducidos_HIBRIDO)
-    #exportar.exportar_resultados_semantica(requisitos_extraidos_reducidos_HIBRIDO_semantica)
+    exportar.exportar_resultados_semantica(requisitos_agrupados, promedio_calidad)
 
     # -----------------Metricas de calidad ---------------------------------------------------------------------------------
     metricas.medidaf_patrones(requisitos_extraidos_reducidos_PATRONES)
