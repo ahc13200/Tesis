@@ -1,52 +1,65 @@
-hacer una solicitud
-entregar el carné
-existir disponibilidad del libro
-rechazar la solicitud
-notificar al estudiante
-revisar las condiciones descritas
-verificar la cantidad
-encontrar el libro
-llenar el comprobante
-registrar el préstamo
-entregar al estudiante
-devolver un libro
-elaborar un comprobante
-presentar con ejemplares
-entregar un comprobante
-colocar los libros
+controlar este sistema
 
 
-descontar la existencia
+recopilar información de un sensor
+entregar al usuario
+sufrir de diabetes
+usar el sistema
+metabolizar la glucosa
+incluir inyecciones regulares de insulina
+medir sus niveles
+usar un medidor externo
+ajustar la dosis
+conducir a niveles
+ocasionar daño ocular
+desarrollar sistemas automatizados de suministro
+envíar al controlador
+calcular el nivel
+envíar señales a una bomba
+suministrar la insulina
+sistema sistema de control para una bomba de insulina 
+
+ una bomba de insulina
+sistema el software que controla este sistema
+usan las personas que sufren de diabetes sistema
+condición la diabetes
+metaboliza la insulina glucosa
+incluye el tratamiento convencional de la diabetes inyecciones
+es el problema con este tratamiento
+ocasionan los continuos niveles elevados de glucosa en la sangre daño
+significan los avances recientes en el desarrollo de sensores miniaturizados
+existen los sistemas de entrega de insulina como éste el tratamiento de pacientes hospitalarios
 
 
-entregar el libro
+controlar una bomba
 
 
-colocar el libro
+monitorizar los niveles
 
 
-recibir el comprobante
+medir ciertos parámetros
 
 
-actualizar el catálogo
+miden los diabéticos niveles
 
 
-permitir al estudiante
+conducir esto
 
 
-realizar la solicitud
+monitorizan dichos sistemas 
+ niveles
 
 
-usar la aplicación
+tendrán muchos diabéticos sistemas
 
 
-evaluer el cumplimiento
+funcionar
 
 
-prestar él el libro
+envía esto controlador
 
 
-recoger el libro
+envía señales bomba
 
 
--0.2676848391078568
+-0.1623231185443142

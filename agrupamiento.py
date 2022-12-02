@@ -2,27 +2,19 @@ from sklearn.cluster import AgglomerativeClustering
 from sklearn.metrics import silhouette_score
 from nltk.corpus import wordnet
 import numpy
+from hermetrics.levenshtein import Levenshtein
 
-'''phrases = ['de formas', 'el servicio',
-'por correo',
-'en cuenta',
-'una estandarización',
-'otra vía',
-'sus certificados',
-'una falta',
-'una falta de información y orientación al público de los pasos a seguir para realizar los trámites que requieren',
-'los documentos',
-'los trámites',
-'a cabo',
-'la información',
-'reporte de estadísticas',
-'esta funcionalidad',
-'un servicio',
-'los registros',
-'en consideración',
-'internet',
-'la posibilidad',
-'solicitudes por esta vía']'''
+'''phrases = ['de formas', 'el servicio', 'por correo', 'en cuenta', 'una estandarización', 'otra vía', 'sus certificados',
+'una falta', 'una falta de información y orientación al público de los pasos a seguir para realizar los trámites que requieren',
+'los documentos', 'los trámites', 'a cabo', 'la información', 'reporte de estadísticas', 'esta funcionalidad', 'un servicio',
+'los registros', 'en consideración', 'internet', 'la posibilidad', 'solicitudes por esta vía']
+
+phrases = ['una solicitud', 'el carné', 'disponibilidad del libro', 'la solicitud', 'al estudiante',
+'las condiciones descritas', 'la cantidad', 'el libro', 'el comprobante','el préstamo',
+'al estudiante', 'un libro', 'un comprobante', 'con ejemplares', 'un comprobante',
+'los libros', 'la existencia', 'el libro', 'el libro', 'el comprobante',
+'el catálogo', 'al estudiante', 'la solicitud', 'la aplicación', 'el cumplimiento',
+'él el libro', 'el libro']'''
 
 
 # Devuelve una lista con los objetos etiquetados con el id de cluster
@@ -54,6 +46,7 @@ def perform_hac(matrix, threshold):
 
 
 def fill_distance_matrix(phrases):
+    lev = Levenshtein()
     matrix = numpy.zeros(shape=(len(phrases), len(phrases)))
     total_dist = 0.0
     pairs = 0
@@ -62,10 +55,12 @@ def fill_distance_matrix(phrases):
         row = []
         for j in range(i + 1, len(phrases)):
             phrase2 = phrases[j]
+            #sin = lev.similarity(phrase1, phrase2)
             sem = semantic(phrase1, phrase2)
-            total_dist += sem
+            valor = 1 - sem
+            total_dist += valor
             pairs += 1
-            matrix[i][j] = round(sem, 2)
+            matrix[i][j] = round(valor, 2)
             # print(str(i) + "--" + str(j))
 
     threshold = round((total_dist / pairs), 2)

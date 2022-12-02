@@ -1,41 +1,40 @@
-hacer una solicitud
-entregar el carné
-existir disponibilidad del libro
-rechazar la solicitud
-notificar al estudiante
-revisar las condiciones descritas
-verificar la cantidad
-encontrar el libro
-llenar el comprobante
-registrar el préstamo
-descontar la existencia
-entregar al estudiante
-devolver un libro
-entregar el libro
-elaborar un comprobante
-colocar el libro
-presentar con ejemplares
-entregar un comprobante
-recibir el comprobante
-colocar los libros
-actualizar el catálogo
-permitir al estudiante
-realizar la solicitud
-usar la aplicación
-evaluer el cumplimiento
-prestar él el libro
-recoger el libro
-hay préstamo de libros 
+controlar este sistema
+recopilar información de un sensor
+controlar una bomba
+entregar al usuario
+sufrir de diabetes
+usar el sistema
+metabolizar la glucosa
+incluir inyecciones regulares de insulina
+medir sus niveles
+usar un medidor externo
+ajustar la dosis
+conducir a niveles
+ocasionar daño ocular
+desarrollar sistemas automatizados de suministro
+monitorizar los niveles
+medir ciertos parámetros
+envíar al controlador
+calcular el nivel
+envíar señales a una bomba
+suministrar la insulina
+sistema sistema de control para una bomba de insulina 
 
-	 en el control de préstamos de libros en la biblioteca de una universidad acciones
-inicia el proceso
-verifica la bibliotecaria
-rechaza la bibliotecaria solicitud
-irá el estudiante
-verifica la cantidad de préstamo que tiene
-encuentra libro
-presenta una distribuidora de libros
-actualiza la bibliotecaria
-paga libros
-coloca libros
-desea
+ una bomba de insulina
+sistema el software que controla este sistema
+usan las personas que sufren de diabetes sistema
+condición la diabetes
+metaboliza la insulina glucosa
+incluye el tratamiento convencional de la diabetes inyecciones
+miden los diabéticos niveles
+es el problema con este tratamiento
+conducir esto
+ocasionan los continuos niveles elevados de glucosa en la sangre daño
+significan los avances recientes en el desarrollo de sensores miniaturizados
+monitorizan dichos sistemas 
+ niveles
+existen los sistemas de entrega de insulina como éste el tratamiento de pacientes hospitalarios
+tendrán muchos diabéticos sistemas
+funcionar
+envía esto controlador
+envía señales bomba

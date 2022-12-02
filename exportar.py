@@ -1,4 +1,3 @@
-import reduccion_redundancias as buscar
 
 
 def exportar_resultados_sintactica(requisitos_extraidos):

@@ -25,11 +25,11 @@ if texto != "":
     requisitos_extraidos_reducidos_HIBRIDO = reduccion_redundancias.similitudes_sintactica(requisitos_extraidos_HIBRIDO)
 
     # ----------------- Agrupamiento basado en la semantica ---------------------------------------------------------------
-    requisitos_agrupados, promedio_calidad = agrupamiento.topic_identification(requisitos_extraidos_reducidos_PATRONES)
+    requisitos_agrupados, calidad_agrupamiento = agrupamiento.topic_identification(requisitos_extraidos_reducidos_HIBRIDO)
 
     # ----------------- Exportar resultados --------------------------------------------------------------------------------
     exportar.exportar_resultados_sintactica(requisitos_extraidos_reducidos_HIBRIDO)
-    exportar.exportar_resultados_semantica(requisitos_agrupados, promedio_calidad)
+    exportar.exportar_resultados_semantica(requisitos_agrupados, calidad_agrupamiento)
 
     # -----------------Metricas de calidad ---------------------------------------------------------------------------------
     metricas.medidaf_patrones(requisitos_extraidos_reducidos_PATRONES)

@@ -1,18 +1,6 @@
-realizar una solicitud de préstamo
-verificar que el estudiante no sea deudor de un libro
-verificar que el número de préstamos actuales que posea sea menor de tres
-verificar que exista disponibilidad de libro
-notificar al estudiante rechazo de la solicitud
-verificar si el estudiante está registrado
-registrar estudiante
-verificar cantidad de préstamo que tiene un estudiante
-verificar disponibilidad del libro solicitado
-localizar el libro en el anaquel donde se ubica físicamente
-llenar comprobante de préstamo
-registrar el préstamo para el estudiante
- descontar la existencia en el registro de libros
-entregar comprobante de préstamos
-actualizar el archivo de préstamo
-incrementar existencia en el registro de libros
-elaborar comprobante de pago
-actualizar catálogo de libros
+recopilar información de un sensor
+controlar que una bomba entrega al usuario una dosis regulada de insulina
+calcular los niveles de azúcar en sangre
+administrar dosis adecuada de insulina
+calcular la cantidad de insulina que se necesita
+enviar señal a una bomba miniaturizada para suministrar la insulina requerida
